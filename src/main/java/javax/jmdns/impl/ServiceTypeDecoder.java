@@ -69,7 +69,7 @@ class ServiceTypeDecoder {
 
 
     private static String originalCase(String casePreservedType, Matcher matcher, int group) {
-        if (matcher.start(group) != -1) {
+        if (matcher.start(group) != -1 && matcher.end(group) < casePreservedType.length()) {
             return casePreservedType.substring(matcher.start(group), matcher.end(group));
         }
         return "";
